@@ -1,0 +1,135 @@
+
+
+/* variáveis*/
+
+$color-bg: #d2d2d2;
+$color-btn: #FE4365;
+$color-btn-active: #4ECDC4;
+$margin-btn: 8em;
+$font-type: Verdana;
+
+
+/* mixins */
+
+@mixin fontsize($tamanho: 24, $base: 18){
+	font-size: $tamanho + px;
+	font-size: ($tamanho/$base) * 1rem;
+}
+
+@mixin transition-timing-function($timing){
+	-webkit-transition-timing-function: $timing;
+	-moz-transition-timing-function: $timing;
+	-o-transition-timing-function: $timing;
+	-transition-transition-timing-function: $timing;
+}
+
+@mixin animation($animation){
+	-webkit-animation: $animation;
+	-o-animation: $animation;
+	-moz-animation: $animation;
+	-transition-animation: $animation;
+}
+@mixin transition-duration($duration){
+	-webkit-duration: $duration;
+	-moz-duration: $duration;
+	-o-duration: $duration;
+	-transition-duration: $duration;
+}
+
+
+/*body*/
+
+body{
+	margin: 0 auto;
+	text-align: center;
+	background-color: $color-bg;
+}
+
+
+/*botão*/
+
+a.gelatin-btn{
+	display: inline-block;
+	margin: $margin-btn;
+	padding: 6em;
+	font-family: $font-type;
+	@include fontsize(26);
+	text-decoration: none;
+	outline: none;
+	color: #FFF;
+	border-radius: 5px;
+	background-color:$color-btn;
+	-webkit-box-shadow: 0 0 0 -2px $color-bg, 0 0 0 -1px $color-btn;
+	box-shadow: 0 0 0 -2px $color-bg, 0 0 0 -1px $color-btn;
+	border: none;
+	-webkit-transition: -webkit-box-shadow .3s;
+	transition: box-shadow .3s;
+	&:hover, &:focus{
+		box-shadow: 0 0 0 2px $color-bg, 0 0 0 4px darken(#FF1D74, 5%);
+		@include transition-timing-function(cubic-bezier(.6, 4, .3, .8));
+	}	@include animation(gelatine .5s 1);
+}
+
+/*Keyframes*/
+
+
+@keyframes gelatine{
+	from, to{
+		-webkit-transform: scale(1,1);
+		transform: scale(1,1);
+	}
+	25%{
+		-webkit-transform: scale(.9, 1.2);
+		transform: scale(1.2, .9);
+	}
+	50%{
+		-webkit-transform: scale(1.2, .9);
+		transform: scale(1.2, .9);
+	}
+
+	75%{
+		-webkit-transform: scale(.95, 1.05);
+		transform: scale(.95, 1.05);
+	}
+}
+@-webkit-keyframes gelatine {
+  from, to {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  25% {
+    -webkit-transform: scale(0.9, 1.1);
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1, 0.9);
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    -webkit-transform: scale(0.95, 1.05);
+    transform: scale(0.95, 1.05);
+  }
+
+  from, to {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  25% {
+    -webkit-transform: scale(0.9, 1.1);
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1, 0.9);
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    -webkit-transform: scale(0.95, 1.05);
+    transform: scale(0.95, 1.05);
+  }
+}
